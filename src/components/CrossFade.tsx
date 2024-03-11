@@ -1,7 +1,5 @@
-import './CrossFade.css';
-
 import { ReactNode, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
 
 function CrossFade({ children }: { children: ReactNode | ReactNode[] }) {
   const [index, setIndex] = useState<number>(0);
@@ -28,17 +26,4 @@ function CrossFade({ children }: { children: ReactNode | ReactNode[] }) {
   );
 }
 
-function CrossFadeImg({ src }: { src: string }) {
-  return (
-    <TransitionGroup>
-      <CSSTransition
-        classNames="cross-fade"
-        timeout={2000}
-      >
-        <img src={src} />
-      </CSSTransition>
-    </TransitionGroup>
-  );
-}
-
-export { CrossFade, CrossFadeImg };
+export { CrossFade };
