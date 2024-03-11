@@ -47,9 +47,24 @@ const CrossfadeImg = ({
   const nextSrc = src !== srcs[1] ? src : '';
 
   const onLoadImg = () => {
+    console.log('emit');
     setKey((key + 1) % 3);
     setSrcs([srcs[1], nextSrc]);
   };
+
+  /**
+   * srcs: ['', '']
+   * nextSrc: src
+   * key: 0
+   *
+   * ['', '', src]
+   * key = key + index, 2
+   *
+   * onLoad 触发
+   *
+   */
+
+  console.log(key, srcs, nextSrc);
 
   return (
     <span style={spanStyle}>
@@ -57,9 +72,9 @@ const CrossfadeImg = ({
         (src, index) =>
           src !== '' && (
             <img
+              className={String((key + index) % 3)}
               key={(key + index) % 3}
               src={src}
-              alt=""
               style={imgStyles[index]}
               onLoad={index === 2 ? onLoadImg : undefined}
             />

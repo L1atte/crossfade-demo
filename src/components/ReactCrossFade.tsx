@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import CrossfadeImg from 'react-crossfade-img';
 
-import img3 from '../assets/dima-dallacqua-_omSqvm_Ohk-unsplash.jpg';
-import img1 from '../assets/dima-dallacqua-DgjKb7Y_R-4-unsplash.jpg';
-import img2 from '../assets/dima-dallacqua-TkDvYSgkyFw-unsplash.jpg';
+import img1 from '../assets/1.jpg';
+import img2 from '../assets/2.jpg';
+import img3 from '../assets/3.jpg';
+import CrossfadeImg from './SourceCode';
 
 function ReactCrossFade() {
   const [src, setSrc] = useState<string>(img1);

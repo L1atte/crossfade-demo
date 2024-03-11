@@ -1,9 +1,6 @@
 import './App.css';
 
-import img3 from './assets/dima-dallacqua-_omSqvm_Ohk-unsplash.jpg';
-import img1 from './assets/dima-dallacqua-DgjKb7Y_R-4-unsplash.jpg';
-import img2 from './assets/dima-dallacqua-TkDvYSgkyFw-unsplash.jpg';
-import { CrossFade } from './components/CrossFade';
+import img1 from './assets/1.jpg';
 import { CrossFadeImg } from './components/CrossFadeImg';
 import { Image } from './components/Image';
 import { ReactCrossFade } from './components/ReactCrossFade';
