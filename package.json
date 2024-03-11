@@ -13,6 +13,7 @@
     "@types/react-transition-group": "^4.4.10",
     "countup.js": "^2.8.0",
     "react": "^18.2.0",
+    "react-crossfade-img": "^1.0.0",
     "react-dom": "^18.2.0",
     "react-tiny-crossfade": "^2.2.0",
     "react-transition-group": "^4.4.5",

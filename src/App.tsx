@@ -6,6 +6,7 @@ import img2 from './assets/dima-dallacqua-TkDvYSgkyFw-unsplash.jpg';
 import { Countup } from './components/Countup';
 import { CrossFade } from './components/CrossFade';
 import { Image } from './components/Image';
+import { ReactCrossFade } from './components/ReactCrossFade';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           height={800}
         />
       </CrossFade>
+      <ReactCrossFade />
     </>
   );
 }
