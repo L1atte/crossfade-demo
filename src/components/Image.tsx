@@ -17,6 +17,7 @@ function Image() {
         perPage: 100000,
       })
       .then(result => {
+        console.log(result);
         setPhotosResponse(result);
       })
       .catch(() => {

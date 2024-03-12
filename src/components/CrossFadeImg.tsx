@@ -28,7 +28,7 @@ function CrossFadeImg({ src }: { src: string }) {
           setInProp(prev => !prev);
         }}
       >
-        click
+        click1
       </button>
     </>
   );

@@ -24,7 +24,7 @@ const imgStyle: CSSProperties = {
   top: 0,
 };
 
-const CrossfadeImg = ({
+const SourceCode = ({
   src = '',
   width,
   height,
@@ -56,24 +56,9 @@ const CrossfadeImg = ({
   const nextSrc = src !== srcList[1] ? src : '';
 
   const onLoadImg = () => {
-    console.log('emit');
     setKey((key + 1) % 3);
     setSrcList([srcList[1], nextSrc]);
   };
-
-  /**
-   * srcList: ['', '']
-   * nextSrc: src
-   * key: 0
-   *
-   * ['', '', src]
-   * key = key + index, 2
-   *
-   * onLoad 触发
-   *
-   */
-
-  console.log(key, srcList, nextSrc);
 
   return (
     <span style={spanStyle}>
@@ -94,4 +79,4 @@ const CrossfadeImg = ({
   );
 };
 
-export default CrossfadeImg;
+export default SourceCode;

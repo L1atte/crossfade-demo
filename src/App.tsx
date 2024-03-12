@@ -4,10 +4,12 @@ import img1 from './assets/1.jpg';
 import { CrossFadeImg } from './components/CrossFadeImg';
 import { Image } from './components/Image';
 import { ReactCrossFade } from './components/ReactCrossFade';
+import { Test } from './components/Test';
 
 function App() {
   return (
     <>
+      <Test />
       <CrossFadeImg src={img1} />
       <Image />
       {/* <Countup /> */}
