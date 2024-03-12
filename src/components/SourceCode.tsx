@@ -1,6 +1,12 @@
-import React, { useMemo, useState } from 'react';
+import React, {
+  CSSProperties,
+  DetailedHTMLProps,
+  ImgHTMLAttributes,
+  useMemo,
+  useState,
+} from 'react';
 
-type ObjectFit = React.CSSProperties['objectFit'];
+type ObjectFit = CSSProperties['objectFit'];
 
 type CrossfadeImgProps = {
   src: string;
@@ -8,12 +14,14 @@ type CrossfadeImgProps = {
   height: string;
   objectFit?: ObjectFit;
   duration?: string;
-};
+} & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 
-const imgStyle: React.CSSProperties = {
+const imgStyle: CSSProperties = {
   position: 'absolute',
   width: `100%`,
   height: `100%`,
+  left: 0,
+  top: 0,
 };
 
 const CrossfadeImg = ({
@@ -22,6 +30,7 @@ const CrossfadeImg = ({
   height,
   objectFit = 'fill',
   duration = '1s',
+  ...rest
 }: CrossfadeImgProps) => {
   const spanStyle: React.CSSProperties = useMemo(
     () => ({
@@ -43,17 +52,17 @@ const CrossfadeImg = ({
   );
 
   const [key, setKey] = useState(0);
-  const [srcs, setSrcs] = useState(['', '']);
-  const nextSrc = src !== srcs[1] ? src : '';
+  const [srcList, setSrcList] = useState(['', '']);
+  const nextSrc = src !== srcList[1] ? src : '';
 
   const onLoadImg = () => {
     console.log('emit');
     setKey((key + 1) % 3);
-    setSrcs([srcs[1], nextSrc]);
+    setSrcList([srcList[1], nextSrc]);
   };
 
   /**
-   * srcs: ['', '']
+   * srcList: ['', '']
    * nextSrc: src
    * key: 0
    *
@@ -64,11 +73,11 @@ const CrossfadeImg = ({
    *
    */
 
-  console.log(key, srcs, nextSrc);
+  console.log(key, srcList, nextSrc);
 
   return (
     <span style={spanStyle}>
-      {[...srcs, nextSrc].map(
+      {[...srcList, nextSrc].map(
         (src, index) =>
           src !== '' && (
             <img
@@ -77,6 +86,7 @@ const CrossfadeImg = ({
               src={src}
               style={imgStyles[index]}
               onLoad={index === 2 ? onLoadImg : undefined}
+              {...rest}
             />
           ),
       )}
