@@ -3,7 +3,7 @@ import { useState } from 'react';
 import img1 from '../assets/1.jpg';
 import img2 from '../assets/2.jpg';
 import img3 from '../assets/3.jpg';
-import CrossfadeImg from './SourceCode';
+import { CrossFadeImg } from './SourceCode';
 
 function ReactCrossFade() {
   const [src, setSrc] = useState<string>(img1);
@@ -23,7 +23,7 @@ function ReactCrossFade() {
   return (
     <>
       <button onClick={handleClick}>switch</button>
-      <CrossfadeImg
+      <CrossFadeImg
         src={src} // Image URL
         width="800px" // CSS width property
         height="800px" // CSS height property

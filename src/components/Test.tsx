@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { res } from '../const';
 import { preloadPhotos } from '../util';
-import SourceCode from './SourceCode';
+import { CrossFadeImg } from './SourceCode';
 
 function Test() {
   const [cityIndex, setCityIndex] = useState<number>(0);
@@ -37,11 +37,11 @@ function Test() {
           alignItems: 'center',
         }}
       >
-        <SourceCode
+        <CrossFadeImg
           width={'400px'}
           height={'400px'}
           src={urls[cityIndex]}
-        ></SourceCode>
+        ></CrossFadeImg>
         <button onClick={handleClick}>switch</button>
       </div>
       <br />
