@@ -15,7 +15,8 @@ function Test() {
     });
 
     setUrls(urls);
-    preloadPhotos(urls);
+
+    requestIdleCallback(() => preloadPhotos(urls));
   }, [photoIndex]);
 
   function handleClick() {

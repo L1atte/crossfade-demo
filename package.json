@@ -12,14 +12,17 @@
   "dependencies": {
     "@types/react-transition-group": "^4.4.10",
     "countup.js": "^2.8.0",
+    "luxon": "^3.4.4",
     "react": "^18.2.0",
     "react-crossfade-img": "^1.0.0",
     "react-dom": "^18.2.0",
+    "react-flip-numbers": "^3.0.8",
     "react-tiny-crossfade": "^2.2.0",
     "react-transition-group": "^4.4.5",
     "unsplash-js": "^7.0.19"
   },
   "devDependencies": {
+    "@types/luxon": "^3.4.2",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",

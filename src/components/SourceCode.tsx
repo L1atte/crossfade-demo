@@ -1,14 +1,7 @@
-import React, {
-  CSSProperties,
-  DetailedHTMLProps,
-  ImgHTMLAttributes,
-  useMemo,
-  useState,
-} from 'react';
+import { CSSProperties, DetailedHTMLProps, ImgHTMLAttributes, useMemo, useState } from 'react';
 
 type ObjectFit = CSSProperties['objectFit'];
-
-type CrossfadeImgProps = {
+type CrossFadeImgProps = {
   src: string;
   width: string;
   height: string;
@@ -24,15 +17,16 @@ const imgStyle: CSSProperties = {
   top: 0,
 };
 
-const SourceCode = ({
+const CrossFadeImg = ({
   src = '',
   width,
   height,
   objectFit = 'fill',
   duration = '1s',
+  style,
   ...rest
-}: CrossfadeImgProps) => {
-  const spanStyle: React.CSSProperties = useMemo(
+}: CrossFadeImgProps) => {
+  const spanStyle: CSSProperties = useMemo(
     () => ({
       display: 'inline-block',
       position: 'relative',
@@ -44,11 +38,11 @@ const SourceCode = ({
 
   const imgStyles = useMemo(
     () => [
-      { ...imgStyle, objectFit, opacity: 0, transition: `opacity ${duration}` },
-      { ...imgStyle, objectFit, opacity: 1, transition: `opacity ${duration}` },
-      { ...imgStyle, objectFit, opacity: 0 },
+      { ...imgStyle, ...style, objectFit, opacity: 0, transition: `opacity ${duration}` },
+      { ...imgStyle, ...style, objectFit, opacity: 1, transition: `opacity ${duration}` },
+      { ...imgStyle, ...style, objectFit, opacity: 0 },
     ],
-    [objectFit, duration],
+    [style, objectFit, duration],
   );
 
   const [key, setKey] = useState(0);
@@ -79,4 +73,4 @@ const SourceCode = ({
   );
 };
 
-export default SourceCode;
+export { CrossFadeImg };
