@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Basic } from 'unsplash-js/dist/methods/photos/types';
 
-import { res } from '../const';
-import { CrossFadeImg } from './SourceCode';
+import { res } from '../../const';
+import { CrossFadeImg } from '../SourceCode';
 
 function SourceCodeDemo() {
   const imageSlideshowTimer = useRef<ReturnType<typeof setInterval>>();
@@ -39,8 +39,10 @@ function SourceCodeDemo() {
   return (
     <CrossFadeImg
       src={photos?.[cityIndex]?.[photoIndex].urls.regular ?? ''}
-      width="1856px"
-      height="952px"
+      // width="1856px"
+      // height="952px"
+      width='100%'
+      height='100%'
     />
   );
 }
