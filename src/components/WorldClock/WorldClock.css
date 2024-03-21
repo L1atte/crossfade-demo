@@ -14,7 +14,7 @@
 
 .city {
   color: #fff;
-  font-family: Inter;
+  font-family: Inter variant0;
   font-size: 36px;
   font-weight: 600;
   font-style: normal;
@@ -23,7 +23,7 @@
 
 .time {
   color: #fff;
-  font-family: Inter;
+  font-family: Inter variant0;
   font-size: 96px;
   font-style: normal;
   font-weight: 600;
@@ -32,7 +32,7 @@
 
 .author {
   color: #fff;
-  font-family: Inter;
+  font-family: Inter variant0;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
