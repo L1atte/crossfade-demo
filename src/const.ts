@@ -17244,4 +17244,43 @@ const res = [
   ],
 ];
 
-export { res };
+const cities = [
+  {
+    city: 'Tokyo',
+    city_ascii: 'Tokyo',
+    lat: 35.68501691,
+    lng: 139.7514074,
+    pop: 22006299.5,
+    country: 'Japan',
+    iso2: 'JP',
+    iso3: 'JPN',
+    province: 'Tokyo',
+    timezone: 'Asia/Tokyo',
+  },
+  {
+    city: 'Beijing',
+    city_ascii: 'Beijing',
+    lat: 39.92889223,
+    lng: 116.3882857,
+    pop: 9293300.5,
+    country: 'China',
+    iso2: 'CN',
+    iso3: 'CHN',
+    province: 'Beijing',
+    timezone: 'Asia/Shanghai',
+  },
+  {
+    city: 'Hangzhou',
+    city_ascii: 'Hangzhou',
+    lat: 30.24997398,
+    lng: 120.1700187,
+    pop: 2442564.5,
+    country: 'China',
+    iso2: 'CN',
+    iso3: 'CHN',
+    province: 'Zhejiang',
+    timezone: 'Asia/Shanghai',
+  },
+];
+
+export { res, cities };

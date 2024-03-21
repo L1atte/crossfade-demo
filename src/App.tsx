@@ -6,8 +6,6 @@ import { WorldClock } from './components/WorldClock/WorldClock';
 function App() {
   return (
     <>
-      <WorldClock />
-
       <SourceCodeDemo />
       {/* <Test />
       <Countup />
