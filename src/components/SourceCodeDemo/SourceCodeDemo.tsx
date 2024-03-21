@@ -47,6 +47,7 @@ function SourceCodeDemo() {
   return (
     <>
       <WorldClock
+        index={cityIndex}
         cityData={cities[cityIndex]}
         author={photos?.[cityIndex]?.[photoIndex].user.username}
       />
