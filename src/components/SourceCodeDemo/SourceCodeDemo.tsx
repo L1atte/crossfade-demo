@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Basic } from 'unsplash-js/dist/methods/photos/types';
 
 import { cities, res } from '../../const';
+import { preloadPhotos } from '../../util';
 import { CrossFadeImg } from '../SourceCode';
 import { WorldClock } from '../WorldClock/WorldClock';
 
@@ -13,7 +14,13 @@ function SourceCodeDemo() {
 
   useEffect(() => {
     setPhotos(res);
-  }, []);
+
+    const urls = res.map(item => {
+      return item[(photoIndex + 1) % 30].urls.regular;
+    });
+
+    requestIdleCallback(() => preloadPhotos(urls));
+  }, [photoIndex]);
 
   useEffect(() => {
     imageSlideshowTimer.current = setInterval(() => {
@@ -39,7 +46,10 @@ function SourceCodeDemo() {
 
   return (
     <>
-      <WorldClock cityData={cities[cityIndex]} />
+      <WorldClock
+        cityData={cities[cityIndex]}
+        author={photos?.[cityIndex]?.[photoIndex].user.username}
+      />
       <CrossFadeImg
         src={photos?.[cityIndex]?.[photoIndex].urls.regular ?? ''}
         // width="1856px"
