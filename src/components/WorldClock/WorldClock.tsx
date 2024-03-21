@@ -37,10 +37,10 @@ function WorldClock({
   }, [index, transRef]);
 
   useEffect(() => {
-    setTime(DateTime.now().toFormat('HH : mm'));
+    setTime(DateTime.now().toFormat('HH:mm'));
 
     timer.current = setInterval(() => {
-      setTime(DateTime.now().setZone(cityData.timezone).toFormat('HH : mm'));
+      setTime(DateTime.now().setZone(cityData.timezone).toFormat('HH:mm'));
     }, 100);
 
     return () => {
