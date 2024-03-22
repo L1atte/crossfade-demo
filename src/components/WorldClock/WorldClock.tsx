@@ -48,32 +48,34 @@ function WorldClock({
     };
   }, [cityData.timezone]);
 
-  const element = transitions(style => {
-    return (
-      <div className="text-wrapper">
-        <animated.div style={{ ...style }}>
-          <div className="city-wrapper">
-            <img
-              width={30}
-              height={30}
-              src={location}
-            ></img>
-            <span className="city">{cityData.city}</span>
+  return (
+    <div>
+      {transitions(style => {
+        return (
+          <div className="text-wrapper">
+            <animated.div style={{ ...style }}>
+              <div className="city-wrapper">
+                <img
+                  width={30}
+                  height={30}
+                  src={location}
+                ></img>
+                <span className="city">{cityData.city}</span>
+              </div>
+            </animated.div>
+
+            <animated.div style={{ ...style }}>
+              <div className="time">{time}</div>
+            </animated.div>
+
+            <animated.div style={{ ...style }}>
+              <div className="author">{`By ${author} - Unsplash`}</div>
+            </animated.div>
           </div>
-        </animated.div>
-
-        <animated.div style={{ ...style }}>
-          <div className="time">{time}</div>
-        </animated.div>
-
-        <animated.div style={{ ...style }}>
-          <div className="author">{`By ${author} - Unsplash`}</div>
-        </animated.div>
-      </div>
-    );
-  });
-
-  return <div>{element}</div>;
+        );
+      })}
+    </div>
+  );
 }
 
 export { WorldClock };
