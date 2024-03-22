@@ -1,44 +1,30 @@
-import './FadeOutUp.css';
+import { ReactNode, useEffect } from 'react';
 
-import { ReactNode, useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import { animated, useSpringRef, useTransition } from '@react-spring/web';
 
-/**
- * <FadeOutUp>{child1}</FadeOutUp>
- * <FadeOutUp>{child2}</FadeOutUp>
- * <FadeOutUp>{child3}</FadeOutUp>
- * <FadeOutUp>{child4}</FadeOutUp>
- */
+function FadeInOut({ children, childKey }: { children: ReactNode; childKey: string | number }) {
+  const transRef = useSpringRef();
+  const transitions = useTransition(childKey, {
+    ref: transRef,
 
-function FadeOutUp({ children }: { children: ReactNode }) {
-  const [childList, setChildList] = useState<(ReactNode | null)[]>([null, null]);
-  const [switchFlag, setSwitchFlag] = useState<boolean>(false);
+    from: { opacity: 0, transform: 'translate3d(0,100%,0)' },
 
-  const nextChild = children !== childList[1] ? children : null;
+    enter: { opacity: 1, transform: 'translate3d(0,0,0)' },
+
+    leave: { opacity: 0, transform: 'translate3d(0,-100%,0)' },
+  });
+
+  useEffect(() => {
+    transRef.start();
+  }, [childKey, transRef]);
 
   return (
     <>
-      <button onClick={() => setSwitchFlag(prev => !prev)}>switch</button>
-      <div style={{ position: 'relative' }}>
-        <CSSTransition
-          classNames="_fade_out_up"
-          in={switchFlag}
-          timeout={200}
-          unmountOnExit
-        >
-          {children}
-        </CSSTransition>
-        <CSSTransition
-          classNames="_fade_in_bottom"
-          in={!switchFlag}
-          timeout={200}
-          unmountOnExit
-        >
-          {children}
-        </CSSTransition>
-      </div>
+      {transitions(style => (
+        <animated.div style={style}>{children}</animated.div>
+      ))}
     </>
   );
 }
 
-export { FadeOutUp };
+export { FadeInOut };

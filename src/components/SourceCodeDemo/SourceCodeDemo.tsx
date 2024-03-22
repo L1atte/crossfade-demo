@@ -6,7 +6,7 @@ import { preloadPhotos } from '../../util';
 import { CrossFadeImg } from '../SourceCode';
 import { WorldClock } from '../WorldClock/WorldClock';
 
-function SourceCodeDemo() {
+function SourceCodeDemo(): JSX.Element {
   const imageSlideshowTimer = useRef<ReturnType<typeof setInterval>>();
   const [photos, setPhotos] = useState<Basic[][]>([]);
   const [cityIndex, setCityIndex] = useState<number>(0);

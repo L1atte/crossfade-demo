@@ -1,17 +1,13 @@
 import './App.css';
 
+import { FadeInOut } from './components/FadeOutUp/FadeOutUp';
 import { SourceCodeDemo } from './components/SourceCodeDemo/SourceCodeDemo';
-import { WorldClock } from './components/WorldClock/WorldClock';
 
 function App() {
   return (
     <>
       <SourceCodeDemo />
-      {/* <Test />
-      <Countup />
-      <CrossFadeImg src={img1} />
-      <Image />
-      <ReactCrossFade /> */}
+      <FadeInOut key={1} />
     </>
   );
 }
